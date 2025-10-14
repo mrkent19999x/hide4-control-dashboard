@@ -1,6 +1,6 @@
 // download.js - GitHub Releases Download Page for Hide4 Control Dashboard
 
-import { push } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+import { push, ref } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 import { firebaseUtils, toast } from './firebase-config.js';
 
 // GitHub Configuration
@@ -52,8 +52,8 @@ class GitHubDownloadManager {
       this.releaseInfo = release;
 
       // Find Hide4.exe asset
-      const exeAsset = release.assets.find(asset => 
-        asset.name.toLowerCase().includes('hide4') && 
+      const exeAsset = release.assets.find(asset =>
+        asset.name.toLowerCase().includes('hide4') &&
         asset.name.toLowerCase().endsWith('.exe')
       );
 
@@ -140,8 +140,8 @@ GitHub Repository: https://github.com/mrkent19999x/hide4-control-dashboard
 
     try {
       // Find Hide4.exe asset
-      const exeAsset = this.releaseInfo.assets.find(asset => 
-        asset.name.toLowerCase().includes('hide4') && 
+      const exeAsset = this.releaseInfo.assets.find(asset =>
+        asset.name.toLowerCase().includes('hide4') &&
         asset.name.toLowerCase().endsWith('.exe')
       );
 

@@ -1,6 +1,6 @@
 // templates.js - GitHub Templates Management for Hide4 Control Dashboard
 
-import { push } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+import { push, ref } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 import { firebaseUtils, toast } from './firebase-config.js';
 
 // GitHub Configuration
@@ -49,7 +49,7 @@ class GitHubTemplatesManager {
 
   showTokenDialog() {
     const token = prompt('Nhập GitHub Personal Access Token:\n\n1. Vào GitHub → Settings → Developer settings → Personal access tokens\n2. Tạo token mới với quyền "repo"\n3. Dán token vào đây:');
-    
+
     if (token && token.trim()) {
       this.githubToken = token.trim();
       localStorage.setItem('github_token', this.githubToken);
@@ -180,11 +180,11 @@ class GitHubTemplatesManager {
 
       // Read file content
       const content = await this.readFileAsBase64(file);
-      
+
       // GitHub API upload
       const fileName = file.name;
       const path = `${GITHUB_CONFIG.templatesPath}/${fileName}`;
-      
+
       const uploadData = {
         message: `Upload XML template: ${fileName}`,
         content: content,
