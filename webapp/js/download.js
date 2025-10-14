@@ -33,13 +33,17 @@ class GitHubDownloadManager {
 
   async loadReleaseInfo() {
     try {
+      // Optional GitHub token to avoid rate limits
+      const token = localStorage.getItem('github_token') || '';
+
       // Try to get latest release from GitHub
       const response = await fetch(
         `${GITHUB_CONFIG.apiBase}/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/releases/latest?t=${Date.now()}`,
         {
           headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Hide4-Control-Dashboard/3.0'
+            'User-Agent': 'Hide4-Control-Dashboard/3.0',
+            ...(token ? { 'Authorization': `token ${token}` } : {})
           },
           cache: 'no-store'
         }
@@ -58,31 +62,36 @@ class GitHubDownloadManager {
         asset.name.toLowerCase().endsWith('.exe')
       );
 
+      // Update UI (metadata)
+      document.getElementById('last-updated').textContent =
+        firebaseUtils.getRelativeTime(release.published_at);
+
+      document.getElementById('version').textContent = release.tag_name;
+      const titleEl = document.getElementById('product-title');
+      if (titleEl) titleEl.textContent = `Hide4 XML Monitor ${release.tag_name}`;
+
+      const downloadBtn = document.getElementById('download-btn');
+
       if (exeAsset) {
-        // Update UI with release info
-        document.getElementById('last-updated').textContent =
-          firebaseUtils.getRelativeTime(release.published_at);
-
-        document.getElementById('version').textContent = release.tag_name;
-        const titleEl = document.getElementById('product-title');
-        if (titleEl) titleEl.textContent = `Hide4 XML Monitor ${release.tag_name}`;
         document.getElementById('file-size').textContent = this.formatFileSize(exeAsset.size);
-
-        // Update download button
-        const downloadBtn = document.getElementById('download-btn');
         downloadBtn.textContent = `📥 Download ${release.tag_name}`;
         downloadBtn.onclick = () => {
           window.open(exeAsset.browser_download_url, '_blank');
           toast.show('📥 Đang tải Hide4.exe...', 'success');
           this.logDownloadEvent(release.tag_name, exeAsset.size);
         };
-
-        // Show release notes
-        this.showReleaseNotes(release);
-
       } else {
-        throw new Error('Hide4.exe not found in release assets');
+        // Fallback khi chưa có asset exe
+        downloadBtn.textContent = `📋 Xem Release ${release.tag_name}`;
+        downloadBtn.onclick = () => {
+          window.open(`https://github.com/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/releases/latest`, '_blank');
+          toast.show('⚠️ Chưa tìm thấy Hide4.exe trong Release, mở trang Releases', 'warning');
+        };
+        document.getElementById('file-size').textContent = 'N/A';
       }
+
+      // Show release notes
+      this.showReleaseNotes(release);
 
     } catch (error) {
       console.error('Error loading release info:', error);
