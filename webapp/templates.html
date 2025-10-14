@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Templates - Hide4 Control Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Suppress Tailwind CSS production warning
+    if (typeof tailwind !== 'undefined') {
+      tailwind.config = {
+        // Suppress warnings
+        corePlugins: {
+          preflight: false,
+        }
+      };
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+  <meta name="theme-color" content="#1f2937">
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <h1 class="text-xl font-bold text-gray-900 nav-title">🕵️ Hide4 Control Dashboard</h1>
+          </div>
+          <div class="hidden md:ml-6 md:flex md:space-x-8 nav-links">
+            <a href="index.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+            <a href="machines.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Máy</a>
+            <a href="logs.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Logs</a>
+            <a href="templates.html"
+              class="bg-blue-100 text-blue-700 px-3 py-2 rounded-md text-sm font-medium">Templates</a>
+            <a href="settings.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Cài đặt</a>
+            <a href="download.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Download</a>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2">
+            <div id="connection-status" class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <span id="connection-text" class="text-sm text-gray-500">Mất kết nối</span>
+          </div>
+          <!-- Mobile menu button -->
+          <button class="md:hidden nav-mobile-menu" onclick="toggleMobileMenu()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50">
+          <a href="index.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">Dashboard</a>
+          <a href="machines.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">Máy</a>
+          <a href="logs.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">Logs</a>
+          <a href="templates.html"
+            class="block px-3 py-2 rounded-md text-base font-medium bg-blue-100 text-blue-700">Templates</a>
+          <a href="settings.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">Cài
+            đặt</a>
+          <a href="download.html"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100">Download</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-900">📄 XML Templates Management</h2>
+      <p class="mt-2 text-gray-600">Quản lý kho XML templates - Upload, xem, xóa templates từ mọi thiết bị</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
+                <span class="text-white text-sm">📄</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Tổng Templates</dt>
+                <dd class="text-lg font-medium text-gray-900" id="total-templates">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
+                <span class="text-white text-sm">📤</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Cập Nhật Gần Nhất</dt>
+                <dd class="text-lg font-medium text-gray-900" id="last-update">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
+                <span class="text-white text-sm">💾</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Storage Used</dt>
+                <dd class="text-lg font-medium text-gray-900" id="storage-used">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-purple-500 rounded-md flex items-center justify-center">
+                <span class="text-white text-sm">🔄</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Máy Đang Sync</dt>
+                <dd class="text-lg font-medium text-gray-900" id="syncing-machines">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="bg-white shadow rounded-lg mb-8">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">📤 Upload XML Template</h3>
+        <p class="mt-1 text-sm text-gray-500">Kéo thả file XML hoặc click để chọn file</p>
+      </div>
+      <div class="p-6">
+        <div id="upload-area"
+          class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors cursor-pointer">
+          <div class="space-y-4">
+            <div class="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-lg font-medium text-gray-900">Kéo thả file XML vào đây</p>
+              <p class="text-sm text-gray-500">hoặc click để chọn file</p>
+            </div>
+            <div>
+              <input type="file" id="file-input" accept=".xml,text/xml,application/xml" multiple class="hidden">
+              <button type="button" id="select-files-btn"
+                class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                Chọn Files
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upload Progress -->
+        <div id="upload-progress" class="mt-4 hidden">
+          <div class="bg-gray-200 rounded-full h-2">
+            <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%">
+            </div>
+          </div>
+          <p id="progress-text" class="text-sm text-gray-600 mt-2">Đang upload...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Templates List -->
+    <div class="bg-white shadow rounded-lg">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <div class="flex justify-between items-center">
+          <h3 class="text-lg font-medium text-gray-900">📋 Danh Sách Templates</h3>
+          <div class="flex space-x-2">
+            <button id="refresh-templates"
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-200 transition-colors text-sm">
+              🔄 Refresh
+            </button>
+            <button id="clear-all-templates"
+              class="bg-red-100 text-red-700 px-3 py-1 rounded-md hover:bg-red-200 transition-colors text-sm">
+              🗑️ Xóa Tất Cả
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-6">
+        <div id="templates-list" class="space-y-4">
+          <div class="text-center py-8 text-gray-500">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+            <p class="mt-2">Đang tải templates...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/templates.js"></script>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    }
+  </script>
+</body>
+
+</html>

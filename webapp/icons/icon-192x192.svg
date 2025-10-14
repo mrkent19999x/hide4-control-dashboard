@@ -1,0 +1,5 @@
+<!-- Simple SVG icon for PWA -->
+<svg width="144" height="144" viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+  <rect width="144" height="144" fill="#1e40af"/>
+  <text x="72" y="80" font-family="Arial" font-size="60" fill="white" text-anchor="middle">H4</text>
+</svg>

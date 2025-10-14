@@ -1,0 +1,71 @@
+{
+  "machine-001": {
+    "info": {
+      "hostname": "DESKTOP-ABC123",
+      "os": "Windows 10",
+      "version": "10.0.19041",
+      "arch": "x64",
+      "install_date": "2024-01-15T10:30:00Z",
+      "last_active": "2025-10-14T13:09:30.082859"
+    },
+    "status": {
+      "online": true,
+      "last_heartbeat": "2025-10-14T13:09:30.082875",
+      "cpu_usage": 37,
+      "memory_usage": 66,
+      "disk_usage": 58
+    },
+    "stats": {
+      "total_files_processed": 686,
+      "files_today": 5,
+      "errors_count": 5,
+      "uptime_hours": 622
+    }
+  },
+  "machine-002": {
+    "info": {
+      "hostname": "LAPTOP-XYZ789",
+      "os": "Windows 11",
+      "version": "11.0.22000",
+      "arch": "x64",
+      "install_date": "2024-02-20T14:15:00Z",
+      "last_active": "2025-10-14T13:04:30.082899"
+    },
+    "status": {
+      "online": true,
+      "last_heartbeat": "2025-10-14T13:07:30.082910",
+      "cpu_usage": 45,
+      "memory_usage": 53,
+      "disk_usage": 51
+    },
+    "stats": {
+      "total_files_processed": 618,
+      "files_today": 19,
+      "errors_count": 2,
+      "uptime_hours": 417
+    }
+  },
+  "machine-003": {
+    "info": {
+      "hostname": "SERVER-DEF456",
+      "os": "Windows Server 2022",
+      "version": "10.0.20348",
+      "arch": "x64",
+      "install_date": "2024-03-10T09:00:00Z",
+      "last_active": "2025-10-14T11:09:30.082925"
+    },
+    "status": {
+      "online": false,
+      "last_heartbeat": "2025-10-14T11:09:30.082932",
+      "cpu_usage": 0,
+      "memory_usage": 0,
+      "disk_usage": 0
+    },
+    "stats": {
+      "total_files_processed": 925,
+      "files_today": 0,
+      "errors_count": 12,
+      "uptime_hours": 620
+    }
+  }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hide4 Control Dashboard</title>
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#1e40af">
+  <meta name="description" content="Hide4 XML Monitor Control Dashboard">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="js/firebase-config.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+  <!-- Navigation -->
+  <nav class="bg-blue-600 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <h1 class="text-xl font-bold">🕵️ Hide4 Control Dashboard</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Dashboard</a>
+          <a href="machines.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Máy</a>
+          <a href="logs.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Logs</a>
+          <a href="templates.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Templates</a>
+          <a href="settings.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Cài đặt</a>
+          <a href="download.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">Download</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                <span class="text-white text-sm">🖥️</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Máy Online</dt>
+                <dd class="text-lg font-medium text-gray-900" id="online-machines">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                <span class="text-white text-sm">🔴</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Máy Offline</dt>
+                <dd class="text-lg font-medium text-gray-900" id="offline-machines">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                <span class="text-white text-sm">📄</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Files Hôm Nay</dt>
+                <dd class="text-lg font-medium text-gray-900" id="files-today">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="p-5">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                <span class="text-white text-sm">📊</span>
+              </div>
+            </div>
+            <div class="ml-5 w-0 flex-1">
+              <dl>
+                <dt class="text-sm font-medium text-gray-500 truncate">Tổng Files</dt>
+                <dd class="text-lg font-medium text-gray-900" id="total-files">-</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <!-- Files Chart -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-medium text-gray-900 mb-4">Files Đã Xử Lý (7 Ngày)</h3>
+        <canvas id="filesChart" width="400" height="200"></canvas>
+      </div>
+
+      <!-- Machines Status -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-medium text-gray-900 mb-4">Trạng Thái Máy</h3>
+        <canvas id="machinesChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Recent Logs -->
+      <div class="bg-white shadow rounded-lg">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900">Logs Gần Nhất</h3>
+        </div>
+        <div class="p-6">
+          <div id="recent-logs" class="space-y-3">
+            <div class="text-gray-500 text-center py-4">Đang tải logs...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Machines -->
+      <div class="bg-white shadow rounded-lg">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h3 class="text-lg font-medium text-gray-900">Máy Hoạt Động</h3>
+        </div>
+        <div class="p-6">
+          <div id="active-machines" class="space-y-3">
+            <div class="text-gray-500 text-center py-4">Đang tải danh sách máy...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 hidden">
+    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+      <div class="mt-3 text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100">
+          <svg class="animate-spin h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium text-gray-900 mt-2">Đang tải dữ liệu...</h3>
+        <p class="text-sm text-gray-500 mt-1">Vui lòng chờ trong giây lát</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+# Hide4 XML Monitor - Files to ignore
+
+# Config files (chứa thông tin nhạy cảm)
+config.json
+machine_id.json
+
+# Log files
+*.log
+xml_overwrite.log
+
+# State files
+processed_files.pkl
+sent_logs.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build files
+build/
+dist/
+*.spec
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+venv/
+env/
+.env
+
+# Temporary files
+*.tmp
+*.temp

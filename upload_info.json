@@ -1,0 +1,18 @@
+{
+  "files": [
+    "ETAX11320250334310774.xml",
+    "ETAX11320250294522551.xml",
+    "ETAX11320250307811609.xml",
+    "ETAX11320250320038129.xml",
+    "ETAX11320250341751122.xml"
+  ],
+  "count": 5,
+  "upload_time": "2025-10-14T13:15:20.341687",
+  "instructions": [
+    "Go to Templates page",
+    "Click 'Ch\u1ecdn Files'",
+    "Select all XML files",
+    "Wait for upload",
+    "Check templates list"
+  ]
+}

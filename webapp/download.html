@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download - Hide4 Control Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Suppress Tailwind CSS production warning
+    if (typeof tailwind !== 'undefined') {
+      tailwind.config = {
+        // Suppress warnings
+        corePlugins: {
+          preflight: false,
+        }
+      };
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+  <meta name="theme-color" content="#1f2937">
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <h1 class="text-xl font-bold text-gray-900">🕵️ Hide4 Control Dashboard</h1>
+          </div>
+          <div class="hidden md:ml-6 md:flex md:space-x-8">
+            <a href="index.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+            <a href="machines.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Máy</a>
+            <a href="logs.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Logs</a>
+            <a href="templates.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Templates</a>
+            <a href="settings.html"
+              class="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Cài đặt</a>
+            <a href="download.html"
+              class="bg-blue-100 text-blue-700 px-3 py-2 rounded-md text-sm font-medium">Download</a>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="flex items-center space-x-2">
+            <div id="connection-status" class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <span id="connection-text" class="text-sm text-gray-500">Mất kết nối</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto py-6 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">📥 Download Hide4 Client</h2>
+      <p class="mt-2 text-gray-600">Tải về và cài đặt Hide4 XML Monitor trên máy Windows</p>
+    </div>
+
+    <!-- Download Card -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="px-6 py-8">
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+            <span class="text-3xl">🕵️</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Hide4 XML Monitor v2.0</h3>
+          <p class="text-gray-600 mb-6">Giám sát toàn hệ thống Windows với Web Dashboard Control</p>
+
+          <!-- Download Button -->
+          <div class="mb-6">
+            <a href="https://drive.google.com/file/d/1ABC123XYZ/view?usp=sharing" id="download-btn"
+              class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors shadow-lg inline-block"
+              target="_blank">
+              📥 Download Hide4.exe
+            </a>
+            <p class="text-sm text-gray-500 mt-2">File size: 14.4MB</p>
+            <p class="text-xs text-gray-400 mt-1">⚠️ Tạm thời sử dụng Google Drive</p>
+          </div>
+
+          <!-- Version Info -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="text-sm font-medium text-gray-500">Version</div>
+              <div class="text-lg font-bold text-gray-900">2.0.0</div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="text-sm font-medium text-gray-500">Platform</div>
+              <div class="text-lg font-bold text-gray-900">Windows 10/11</div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="text-sm font-medium text-gray-500">Last Updated</div>
+              <div class="text-lg font-bold text-gray-900" id="last-updated">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Installation Instructions -->
+    <div class="mt-8 bg-white shadow rounded-lg">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">📋 Hướng Dẫn Cài Đặt</h3>
+      </div>
+      <div class="p-6">
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              1</div>
+            <div>
+              <h4 class="font-medium text-gray-900">Tải về Hide4.exe</h4>
+              <p class="text-gray-600">Click nút Download ở trên để tải file Hide4.exe về máy</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              2</div>
+            <div>
+              <h4 class="font-medium text-gray-900">Chạy với quyền Administrator</h4>
+              <p class="text-gray-600">Right-click vào file Hide4.exe → "Run as administrator"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              3</div>
+            <div>
+              <h4 class="font-medium text-gray-900">Tự động đồng bộ</h4>
+              <p class="text-gray-600">Exe sẽ tự động tải XML templates từ Firebase Storage</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              4</div>
+            <div>
+              <h4 class="font-medium text-gray-900">Giám sát qua Web Dashboard</h4>
+              <p class="text-gray-600">Mở <a href="index.html" class="text-blue-600 hover:underline">Dashboard</a> để
+                xem logs và điều khiển máy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="mt-8 bg-white shadow rounded-lg">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">✨ Tính Năng</h3>
+      </div>
+      <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Tự động đồng bộ XML templates</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Giám sát tất cả ổ đĩa Windows</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Web Dashboard điều khiển từ xa</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Tự động startup khi khởi động máy</span>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Logs realtime trên webapp</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Không cần cấu hình thủ công</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">PWA Dashboard trên mobile</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-green-500">✅</span>
+              <span class="text-gray-700">Heartbeat và monitoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Requirements -->
+    <div class="mt-8 bg-white shadow rounded-lg">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h3 class="text-lg font-medium text-gray-900">💻 Yêu Cầu Hệ Thống</h3>
+      </div>
+      <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Hệ điều hành</h4>
+            <ul class="space-y-2 text-gray-600">
+              <li>• Windows 10 (Build 1903 trở lên)</li>
+              <li>• Windows 11</li>
+              <li>• Windows Server 2019/2022</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-3">Quyền truy cập</h4>
+            <ul class="space-y-2 text-gray-600">
+              <li>• Quyền Administrator (bắt buộc)</li>
+              <li>• Kết nối Internet</li>
+              <li>• Truy cập đọc/ghi file hệ thống</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+      <div class="text-center">
+        <h3 class="text-lg font-medium text-blue-900 mb-2">🆘 Cần Hỗ Trợ?</h3>
+        <p class="text-blue-700 mb-4">Nếu gặp vấn đề trong quá trình cài đặt hoặc sử dụng</p>
+        <div class="flex justify-center space-x-4">
+          <a href="mailto:mrkent19999x@gmail.com"
+            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+            📧 Email Support
+          </a>
+          <a href="settings.html"
+            class="bg-blue-100 text-blue-700 px-4 py-2 rounded-md hover:bg-blue-200 transition-colors">
+            ⚙️ Settings
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/download.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,2263 @@
+{
+  "machine-001": {
+    "2025-10-14T20:36:14.082947": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T20:36:14.082947",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 100844,
+        "processing_time": 3024
+      }
+    },
+    "2025-10-14T16:16:14.082947": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-14T16:16:14.082947",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 641473,
+        "processing_time": 4333
+      }
+    },
+    "2025-10-14T20:17:12.082947": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-14T20:17:12.082947",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 272789,
+        "processing_time": 491
+      }
+    },
+    "2025-10-14T14:43:27.082947": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T14:43:27.082947",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 718727,
+        "processing_time": 2579
+      }
+    },
+    "2025-10-14T15:56:11.082947": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-14T15:56:11.082947",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 19870,
+        "processing_time": 4426
+      }
+    },
+    "2025-10-14T13:14:17.082947": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-14T13:14:17.082947",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 238073,
+        "processing_time": 1592
+      }
+    },
+    "2025-10-13T17:07:27.083065": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-13T17:07:27.083065",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 727075,
+        "processing_time": 4909
+      }
+    },
+    "2025-10-13T19:30:58.083065": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T19:30:58.083065",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 595142,
+        "processing_time": 3717
+      }
+    },
+    "2025-10-14T05:31:11.083065": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-14T05:31:11.083065",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 81423,
+        "processing_time": 1147
+      }
+    },
+    "2025-10-14T05:39:57.083065": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T05:39:57.083065",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 784934,
+        "processing_time": 4578
+      }
+    },
+    "2025-10-14T05:15:36.083065": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-14T05:15:36.083065",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 727209,
+        "processing_time": 1263
+      }
+    },
+    "2025-10-14T10:40:54.083065": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T10:40:54.083065",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 909466,
+        "processing_time": 1923
+      }
+    },
+    "2025-10-14T05:16:04.083065": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-14T05:16:04.083065",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 758204,
+        "processing_time": 4866
+      }
+    },
+    "2025-10-13T18:30:37.083065": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-13T18:30:37.083065",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 54694,
+        "processing_time": 3117
+      }
+    },
+    "2025-10-13T13:08:01.083196": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T13:08:01.083196",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 259229,
+        "processing_time": 3241
+      }
+    },
+    "2025-10-13T00:46:25.083196": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-13T00:46:25.083196",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 991726,
+        "processing_time": 4315
+      }
+    },
+    "2025-10-12T14:48:53.083196": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-12T14:48:53.083196",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 854288,
+        "processing_time": 3517
+      }
+    },
+    "2025-10-13T04:27:36.083196": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-13T04:27:36.083196",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 401182,
+        "processing_time": 179
+      }
+    },
+    "2025-10-13T02:01:01.083196": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T02:01:01.083196",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 643587,
+        "processing_time": 3403
+      }
+    },
+    "2025-10-12T14:54:36.083196": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T14:54:36.083196",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 97259,
+        "processing_time": 2784
+      }
+    },
+    "2025-10-13T00:46:09.083196": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T00:46:09.083196",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 109185,
+        "processing_time": 4369
+      }
+    },
+    "2025-10-13T04:31:12.083196": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-13T04:31:12.083196",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 619187,
+        "processing_time": 2718
+      }
+    },
+    "2025-10-13T08:56:19.083196": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-13T08:56:19.083196",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 982047,
+        "processing_time": 2251
+      }
+    },
+    "2025-10-13T01:01:48.083196": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-13T01:01:48.083196",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 326301,
+        "processing_time": 4430
+      }
+    },
+    "2025-10-12T15:37:58.083196": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-12T15:37:58.083196",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 747040,
+        "processing_time": 775
+      }
+    },
+    "2025-10-13T06:33:15.083196": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-13T06:33:15.083196",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 95978,
+        "processing_time": 118
+      }
+    },
+    "2025-10-12T09:39:31.083363": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-12T09:39:31.083363",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 79819,
+        "processing_time": 4322
+      }
+    },
+    "2025-10-12T00:12:13.083363": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T00:12:13.083363",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 812710,
+        "processing_time": 1829
+      }
+    },
+    "2025-10-12T06:17:39.083363": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-12T06:17:39.083363",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 457916,
+        "processing_time": 1432
+      }
+    },
+    "2025-10-12T04:19:46.083363": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T04:19:46.083363",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 85664,
+        "processing_time": 1007
+      }
+    },
+    "2025-10-11T21:23:29.083363": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-11T21:23:29.083363",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 467520,
+        "processing_time": 2054
+      }
+    },
+    "2025-10-12T02:23:57.083363": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T02:23:57.083363",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 570260,
+        "processing_time": 1361
+      }
+    },
+    "2025-10-12T10:26:26.083363": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-12T10:26:26.083363",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 720818,
+        "processing_time": 2769
+      }
+    },
+    "2025-10-11T19:57:59.083363": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-11T19:57:59.083363",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 174439,
+        "processing_time": 749
+      }
+    },
+    "2025-10-12T04:54:11.083363": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-12T04:54:11.083363",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 353882,
+        "processing_time": 4342
+      }
+    },
+    "2025-10-12T06:01:49.083363": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-12T06:01:49.083363",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 987408,
+        "processing_time": 3880
+      }
+    },
+    "2025-10-11T04:10:42.083500": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-11T04:10:42.083500",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 395537,
+        "processing_time": 1550
+      }
+    },
+    "2025-10-11T00:05:30.083500": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-11T00:05:30.083500",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 404718,
+        "processing_time": 310
+      }
+    },
+    "2025-10-10T23:16:03.083500": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T23:16:03.083500",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 502803,
+        "processing_time": 1131
+      }
+    },
+    "2025-10-10T19:53:49.083500": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T19:53:49.083500",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 929900,
+        "processing_time": 2059
+      }
+    },
+    "2025-10-10T17:25:32.083500": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-10T17:25:32.083500",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 4257,
+        "processing_time": 2971
+      }
+    },
+    "2025-10-10T20:29:14.083500": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-10T20:29:14.083500",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 317301,
+        "processing_time": 926
+      }
+    },
+    "2025-10-10T12:49:23.083586": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-10T12:49:23.083586",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 35177,
+        "processing_time": 2950
+      }
+    },
+    "2025-10-09T19:01:35.083586": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-09T19:01:35.083586",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 291830,
+        "processing_time": 2863
+      }
+    },
+    "2025-10-10T08:21:54.083586": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-10T08:21:54.083586",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 250085,
+        "processing_time": 1828
+      }
+    },
+    "2025-10-09T23:58:02.083586": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-09T23:58:02.083586",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 213299,
+        "processing_time": 284
+      }
+    },
+    "2025-10-10T04:59:00.083586": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-10T04:59:00.083586",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 787551,
+        "processing_time": 1723
+      }
+    },
+    "2025-10-10T07:58:23.083586": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-10T07:58:23.083586",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 655399,
+        "processing_time": 865
+      }
+    },
+    "2025-10-09T21:15:50.083586": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T21:15:50.083586",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 175050,
+        "processing_time": 4549
+      }
+    },
+    "2025-10-09T15:33:48.083586": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T15:33:48.083586",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 472065,
+        "processing_time": 202
+      }
+    },
+    "2025-10-10T05:54:30.083586": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-10T05:54:30.083586",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 438326,
+        "processing_time": 1882
+      }
+    },
+    "2025-10-10T03:06:27.083586": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-10T03:06:27.083586",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 124543,
+        "processing_time": 2068
+      }
+    },
+    "2025-10-09T23:55:34.083586": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T23:55:34.083586",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 993012,
+        "processing_time": 1999
+      }
+    },
+    "2025-10-09T15:01:36.083586": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T15:01:36.083586",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 865464,
+        "processing_time": 2905
+      }
+    },
+    "2025-10-08T17:52:09.083752": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-08T17:52:09.083752",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 979426,
+        "processing_time": 902
+      }
+    },
+    "2025-10-09T10:26:39.083752": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T10:26:39.083752",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 537418,
+        "processing_time": 2933
+      }
+    },
+    "2025-10-08T19:12:00.083752": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-08T19:12:00.083752",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 845993,
+        "processing_time": 1705
+      }
+    },
+    "2025-10-08T21:51:17.083752": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-08T21:51:17.083752",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 849296,
+        "processing_time": 246
+      }
+    },
+    "2025-10-08T17:35:01.083752": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-08T17:35:01.083752",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 582740,
+        "processing_time": 3229
+      }
+    },
+    "2025-10-09T07:35:31.083752": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-09T07:35:31.083752",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 65860,
+        "processing_time": 4385
+      }
+    },
+    "2025-10-09T09:13:03.083752": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-09T09:13:03.083752",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 401531,
+        "processing_time": 1369
+      }
+    },
+    "2025-10-08T15:27:38.083752": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-08T15:27:38.083752",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 1030815,
+        "processing_time": 395
+      }
+    },
+    "2025-10-09T05:45:26.083752": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-09T05:45:26.083752",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 577687,
+        "processing_time": 4135
+      }
+    },
+    "2025-10-09T08:39:57.083752": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-09T08:39:57.083752",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 585186,
+        "processing_time": 4397
+      }
+    }
+  },
+  "machine-002": {
+    "2025-10-14T17:29:01.083889": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T17:29:01.083889",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 638895,
+        "processing_time": 2010
+      }
+    },
+    "2025-10-14T23:43:31.083889": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T23:43:31.083889",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 847909,
+        "processing_time": 4804
+      }
+    },
+    "2025-10-14T20:03:21.083889": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T20:03:21.083889",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 105925,
+        "processing_time": 1845
+      }
+    },
+    "2025-10-15T02:06:33.083889": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-15T02:06:33.083889",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 891195,
+        "processing_time": 4804
+      }
+    },
+    "2025-10-14T20:29:32.083889": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-14T20:29:32.083889",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 376714,
+        "processing_time": 720
+      }
+    },
+    "2025-10-15T05:13:35.083889": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-15T05:13:35.083889",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 127896,
+        "processing_time": 2672
+      }
+    },
+    "2025-10-15T05:30:35.083889": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-15T05:30:35.083889",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 38506,
+        "processing_time": 4871
+      }
+    },
+    "2025-10-14T17:38:22.083889": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-14T17:38:22.083889",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 872520,
+        "processing_time": 2277
+      }
+    },
+    "2025-10-15T11:43:21.083889": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-15T11:43:21.083889",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 673837,
+        "processing_time": 274
+      }
+    },
+    "2025-10-14T13:40:12.083889": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T13:40:12.083889",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 181781,
+        "processing_time": 3502
+      }
+    },
+    "2025-10-14T06:35:00.084029": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T06:35:00.084029",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 401099,
+        "processing_time": 4891
+      }
+    },
+    "2025-10-14T02:17:18.084029": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-14T02:17:18.084029",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 501078,
+        "processing_time": 3845
+      }
+    },
+    "2025-10-13T14:31:13.084029": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-13T14:31:13.084029",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 798167,
+        "processing_time": 3900
+      }
+    },
+    "2025-10-13T22:13:41.084029": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-13T22:13:41.084029",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 245557,
+        "processing_time": 3915
+      }
+    },
+    "2025-10-13T20:50:54.084029": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-13T20:50:54.084029",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 618674,
+        "processing_time": 2201
+      }
+    },
+    "2025-10-14T12:27:07.084029": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-14T12:27:07.084029",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 700789,
+        "processing_time": 2544
+      }
+    },
+    "2025-10-14T09:38:16.084029": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-14T09:38:16.084029",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 560297,
+        "processing_time": 2579
+      }
+    },
+    "2025-10-14T12:54:04.084029": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T12:54:04.084029",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 751624,
+        "processing_time": 883
+      }
+    },
+    "2025-10-14T01:08:15.084029": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T01:08:15.084029",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 292791,
+        "processing_time": 2446
+      }
+    },
+    "2025-10-14T07:21:19.084029": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-14T07:21:19.084029",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 73124,
+        "processing_time": 1866
+      }
+    },
+    "2025-10-13T15:37:45.084029": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-13T15:37:45.084029",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 263000,
+        "processing_time": 463
+      }
+    },
+    "2025-10-13T18:24:07.084029": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-13T18:24:07.084029",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 801229,
+        "processing_time": 346
+      }
+    },
+    "2025-10-13T00:26:47.084224": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-13T00:26:47.084224",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 859599,
+        "processing_time": 460
+      }
+    },
+    "2025-10-12T22:58:39.084224": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-12T22:58:39.084224",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 850196,
+        "processing_time": 3295
+      }
+    },
+    "2025-10-13T09:53:27.084224": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-13T09:53:27.084224",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 286856,
+        "processing_time": 1936
+      }
+    },
+    "2025-10-13T10:52:31.084224": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-13T10:52:31.084224",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 521955,
+        "processing_time": 2149
+      }
+    },
+    "2025-10-13T00:25:14.084224": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-13T00:25:14.084224",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 289338,
+        "processing_time": 3141
+      }
+    },
+    "2025-10-13T12:13:48.084224": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-13T12:13:48.084224",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 275189,
+        "processing_time": 4333
+      }
+    },
+    "2025-10-12T19:50:52.084224": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T19:50:52.084224",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 663725,
+        "processing_time": 2092
+      }
+    },
+    "2025-10-12T18:41:14.084224": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-12T18:41:14.084224",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 558381,
+        "processing_time": 1068
+      }
+    },
+    "2025-10-11T13:21:00.084340": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-11T13:21:00.084340",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 833532,
+        "processing_time": 4802
+      }
+    },
+    "2025-10-11T21:13:05.084340": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-11T21:13:05.084340",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 573782,
+        "processing_time": 3820
+      }
+    },
+    "2025-10-11T15:10:05.084340": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-11T15:10:05.084340",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 997256,
+        "processing_time": 1564
+      }
+    },
+    "2025-10-12T01:24:58.084340": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-12T01:24:58.084340",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 549825,
+        "processing_time": 1370
+      }
+    },
+    "2025-10-11T20:15:19.084340": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-11T20:15:19.084340",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 88903,
+        "processing_time": 143
+      }
+    },
+    "2025-10-12T02:35:57.084340": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T02:35:57.084340",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 919107,
+        "processing_time": 1165
+      }
+    },
+    "2025-10-11T17:47:14.084340": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-11T17:47:14.084340",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 14733,
+        "processing_time": 1080
+      }
+    },
+    "2025-10-11T18:42:44.084340": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-11T18:42:44.084340",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 537664,
+        "processing_time": 1697
+      }
+    },
+    "2025-10-12T05:41:35.084340": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-12T05:41:35.084340",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 470291,
+        "processing_time": 3556
+      }
+    },
+    "2025-10-11T17:08:06.084340": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-11T17:08:06.084340",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 828484,
+        "processing_time": 3440
+      }
+    },
+    "2025-10-11T22:39:31.084340": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-11T22:39:31.084340",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 912718,
+        "processing_time": 4736
+      }
+    },
+    "2025-10-11T14:45:28.084340": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-11T14:45:28.084340",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 549297,
+        "processing_time": 1716
+      }
+    },
+    "2025-10-12T03:25:23.084340": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-12T03:25:23.084340",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_12.xml",
+        "file_size": 27507,
+        "processing_time": 4107
+      }
+    },
+    "2025-10-12T03:47:00.084340": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-12T03:47:00.084340",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_13.xml",
+        "file_size": 573520,
+        "processing_time": 1699
+      }
+    },
+    "2025-10-11T08:39:01.084551": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-11T08:39:01.084551",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 431242,
+        "processing_time": 4684
+      }
+    },
+    "2025-10-11T01:13:48.084551": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-11T01:13:48.084551",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 1038912,
+        "processing_time": 1212
+      }
+    },
+    "2025-10-11T04:46:27.084551": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-11T04:46:27.084551",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 461641,
+        "processing_time": 694
+      }
+    },
+    "2025-10-11T06:20:54.084551": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-11T06:20:54.084551",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 800134,
+        "processing_time": 2783
+      }
+    },
+    "2025-10-11T01:00:47.084551": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-11T01:00:47.084551",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 199562,
+        "processing_time": 3443
+      }
+    },
+    "2025-10-10T19:26:25.084551": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T19:26:25.084551",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 42485,
+        "processing_time": 3461
+      }
+    },
+    "2025-10-11T05:48:03.084551": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-11T05:48:03.084551",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 491879,
+        "processing_time": 1747
+      }
+    },
+    "2025-10-10T15:05:34.084551": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-10T15:05:34.084551",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 218316,
+        "processing_time": 4677
+      }
+    },
+    "2025-10-10T17:47:41.084551": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-10T17:47:41.084551",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 670656,
+        "processing_time": 1690
+      }
+    },
+    "2025-10-10T14:06:30.084551": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-10T14:06:30.084551",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 299215,
+        "processing_time": 2579
+      }
+    },
+    "2025-10-11T04:52:03.084551": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-11T04:52:03.084551",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 366234,
+        "processing_time": 4201
+      }
+    },
+    "2025-10-10T15:26:39.084551": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-10T15:26:39.084551",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 745771,
+        "processing_time": 2509
+      }
+    },
+    "2025-10-11T11:15:16.084551": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-11T11:15:16.084551",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_12.xml",
+        "file_size": 457877,
+        "processing_time": 2637
+      }
+    },
+    "2025-10-09T14:34:36.084858": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T14:34:36.084858",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 251896,
+        "processing_time": 606
+      }
+    },
+    "2025-10-10T06:34:46.084858": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T06:34:46.084858",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 528999,
+        "processing_time": 4513
+      }
+    },
+    "2025-10-09T20:58:55.084858": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-09T20:58:55.084858",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 418862,
+        "processing_time": 532
+      }
+    },
+    "2025-10-10T03:31:28.084858": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-10T03:31:28.084858",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 651400,
+        "processing_time": 4074
+      }
+    },
+    "2025-10-09T13:11:24.084858": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-09T13:11:24.084858",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 164798,
+        "processing_time": 1922
+      }
+    },
+    "2025-10-09T21:27:26.084858": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T21:27:26.084858",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 156078,
+        "processing_time": 2628
+      }
+    },
+    "2025-10-09T16:25:02.084858": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T16:25:02.084858",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 822098,
+        "processing_time": 2292
+      }
+    },
+    "2025-10-10T01:20:17.084858": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-10T01:20:17.084858",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 696423,
+        "processing_time": 3356
+      }
+    },
+    "2025-10-10T06:31:46.084858": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T06:31:46.084858",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 461791,
+        "processing_time": 1390
+      }
+    },
+    "2025-10-09T11:00:46.084990": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-09T11:00:46.084990",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 391445,
+        "processing_time": 628
+      }
+    },
+    "2025-10-08T23:41:41.084990": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-08T23:41:41.084990",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 75872,
+        "processing_time": 1558
+      }
+    },
+    "2025-10-08T19:19:12.084990": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-08T19:19:12.084990",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 417640,
+        "processing_time": 3026
+      }
+    },
+    "2025-10-09T04:35:08.084990": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-09T04:35:08.084990",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 419625,
+        "processing_time": 3621
+      }
+    },
+    "2025-10-09T03:06:59.084990": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-09T03:06:59.084990",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 583386,
+        "processing_time": 3617
+      }
+    },
+    "2025-10-09T08:37:31.084990": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T08:37:31.084990",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 1029750,
+        "processing_time": 1223
+      }
+    },
+    "2025-10-09T11:19:27.084990": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-09T11:19:27.084990",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 482322,
+        "processing_time": 729
+      }
+    },
+    "2025-10-09T02:17:47.084990": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T02:17:47.084990",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 103594,
+        "processing_time": 2371
+      }
+    }
+  },
+  "machine-003": {
+    "2025-10-15T06:58:38.085123": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-15T06:58:38.085123",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 299387,
+        "processing_time": 385
+      }
+    },
+    "2025-10-14T15:00:59.085123": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T15:00:59.085123",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 669444,
+        "processing_time": 2550
+      }
+    },
+    "2025-10-14T17:23:55.085123": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-14T17:23:55.085123",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 286967,
+        "processing_time": 1379
+      }
+    },
+    "2025-10-14T22:59:31.085123": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T22:59:31.085123",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 324751,
+        "processing_time": 3147
+      }
+    },
+    "2025-10-15T06:09:46.085123": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-15T06:09:46.085123",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 667873,
+        "processing_time": 401
+      }
+    },
+    "2025-10-14T14:10:22.085123": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T14:10:22.085123",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 362769,
+        "processing_time": 3260
+      }
+    },
+    "2025-10-15T07:46:37.085123": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-15T07:46:37.085123",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 1034410,
+        "processing_time": 1079
+      }
+    },
+    "2025-10-14T20:27:04.085123": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T20:27:04.085123",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 315076,
+        "processing_time": 1339
+      }
+    },
+    "2025-10-15T12:45:58.085123": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-15T12:45:58.085123",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 631886,
+        "processing_time": 3655
+      }
+    },
+    "2025-10-15T04:11:14.085123": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-15T04:11:14.085123",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 565745,
+        "processing_time": 1599
+      }
+    },
+    "2025-10-15T09:53:44.085123": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-15T09:53:44.085123",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 962651,
+        "processing_time": 4443
+      }
+    },
+    "2025-10-15T02:24:46.085123": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-15T02:24:46.085123",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 926811,
+        "processing_time": 2289
+      }
+    },
+    "2025-10-14T10:48:00.085276": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T10:48:00.085276",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 619091,
+        "processing_time": 3674
+      }
+    },
+    "2025-10-13T20:19:09.085276": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T20:19:09.085276",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 182387,
+        "processing_time": 3476
+      }
+    },
+    "2025-10-14T08:31:35.085276": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T08:31:35.085276",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 549349,
+        "processing_time": 1856
+      }
+    },
+    "2025-10-14T09:01:12.085276": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-14T09:01:12.085276",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 402451,
+        "processing_time": 750
+      }
+    },
+    "2025-10-13T22:11:34.085276": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-13T22:11:34.085276",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 503802,
+        "processing_time": 1182
+      }
+    },
+    "2025-10-13T17:37:07.085276": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T17:37:07.085276",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 734682,
+        "processing_time": 1867
+      }
+    },
+    "2025-10-14T09:32:54.085276": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-14T09:32:54.085276",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 748307,
+        "processing_time": 120
+      }
+    },
+    "2025-10-14T10:30:16.085276": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T10:30:16.085276",
+      "message": "Sample error_occurred event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 312621,
+        "processing_time": 866
+      }
+    },
+    "2025-10-14T07:10:08.085276": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-14T07:10:08.085276",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 361249,
+        "processing_time": 2762
+      }
+    },
+    "2025-10-14T02:32:13.085276": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-14T02:32:13.085276",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 511132,
+        "processing_time": 3264
+      }
+    },
+    "2025-10-14T07:06:37.085276": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-14T07:06:37.085276",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 1018530,
+        "processing_time": 2246
+      }
+    },
+    "2025-10-13T15:19:39.085276": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T15:19:39.085276",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 301551,
+        "processing_time": 100
+      }
+    },
+    "2025-10-13T17:41:29.085276": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-13T17:41:29.085276",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_12.xml",
+        "file_size": 573108,
+        "processing_time": 2901
+      }
+    },
+    "2025-10-14T02:14:26.085276": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T02:14:26.085276",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_13.xml",
+        "file_size": 164902,
+        "processing_time": 646
+      }
+    },
+    "2025-10-14T09:32:11.085276": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-14T09:32:11.085276",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_14.xml",
+        "file_size": 803283,
+        "processing_time": 4704
+      }
+    },
+    "2025-10-13T02:36:04.085476": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-13T02:36:04.085476",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 952148,
+        "processing_time": 705
+      }
+    },
+    "2025-10-13T02:47:13.085476": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-13T02:47:13.085476",
+      "message": "Sample heartbeat event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 768956,
+        "processing_time": 1006
+      }
+    },
+    "2025-10-13T04:29:15.085476": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-13T04:29:15.085476",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 199760,
+        "processing_time": 3887
+      }
+    },
+    "2025-10-13T08:24:16.085476": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-13T08:24:16.085476",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 90576,
+        "processing_time": 1118
+      }
+    },
+    "2025-10-12T18:57:50.085476": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-12T18:57:50.085476",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 766491,
+        "processing_time": 565
+      }
+    },
+    "2025-10-11T18:17:36.085549": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-11T18:17:36.085549",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 42501,
+        "processing_time": 3200
+      }
+    },
+    "2025-10-12T03:36:14.085549": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-12T03:36:14.085549",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 300606,
+        "processing_time": 4374
+      }
+    },
+    "2025-10-12T04:01:27.085549": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-12T04:01:27.085549",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 464211,
+        "processing_time": 4099
+      }
+    },
+    "2025-10-11T13:49:11.085549": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-11T13:49:11.085549",
+      "message": "Sample template_synced event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 352510,
+        "processing_time": 1331
+      }
+    },
+    "2025-10-12T06:10:49.085549": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-12T06:10:49.085549",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 756934,
+        "processing_time": 152
+      }
+    },
+    "2025-10-12T00:50:35.085549": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-12T00:50:35.085549",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 996422,
+        "processing_time": 3277
+      }
+    },
+    "2025-10-11T01:25:20.085628": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-11T01:25:20.085628",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 897646,
+        "processing_time": 4635
+      }
+    },
+    "2025-10-10T21:10:49.085628": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T21:10:49.085628",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 500905,
+        "processing_time": 3637
+      }
+    },
+    "2025-10-10T22:58:23.085628": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-10T22:58:23.085628",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 238821,
+        "processing_time": 177
+      }
+    },
+    "2025-10-11T08:05:54.085628": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-11T08:05:54.085628",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 1345,
+        "processing_time": 3885
+      }
+    },
+    "2025-10-11T01:40:43.085628": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-11T01:40:43.085628",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 451778,
+        "processing_time": 1830
+      }
+    },
+    "2025-10-11T06:55:57.085628": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-11T06:55:57.085628",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 180274,
+        "processing_time": 2937
+      }
+    },
+    "2025-10-10T15:12:47.085628": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-10T15:12:47.085628",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 833338,
+        "processing_time": 4009
+      }
+    },
+    "2025-10-11T10:55:46.085628": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-11T10:55:46.085628",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 940409,
+        "processing_time": 4315
+      }
+    },
+    "2025-10-11T02:07:05.085628": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-11T02:07:05.085628",
+      "message": "Sample startup event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 845428,
+        "processing_time": 3146
+      }
+    },
+    "2025-10-10T22:07:22.085628": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-10T22:07:22.085628",
+      "message": "Sample template_synced event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 300502,
+        "processing_time": 2382
+      }
+    },
+    "2025-10-10T22:08:44.085628": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-10T22:08:44.085628",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 518463,
+        "processing_time": 4774
+      }
+    },
+    "2025-10-11T00:11:59.085628": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-11T00:11:59.085628",
+      "message": "Sample file_processed event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_11.xml",
+        "file_size": 1005814,
+        "processing_time": 3693
+      }
+    },
+    "2025-10-10T22:20:46.085628": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-10T22:20:46.085628",
+      "message": "Sample shutdown event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_12.xml",
+        "file_size": 634957,
+        "processing_time": 4911
+      }
+    },
+    "2025-10-09T18:42:44.085799": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-09T18:42:44.085799",
+      "message": "Sample error_occurred event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 647786,
+        "processing_time": 958
+      }
+    },
+    "2025-10-09T19:28:34.085799": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-09T19:28:34.085799",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 708511,
+        "processing_time": 3276
+      }
+    },
+    "2025-10-10T03:37:18.085799": {
+      "event": "ERROR_OCCURRED",
+      "timestamp": "2025-10-10T03:37:18.085799",
+      "message": "Sample error_occurred event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 306217,
+        "processing_time": 1988
+      }
+    },
+    "2025-10-09T15:28:22.085799": {
+      "event": "TEMPLATE_SYNCED",
+      "timestamp": "2025-10-09T15:28:22.085799",
+      "message": "Sample template_synced event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 420372,
+        "processing_time": 4644
+      }
+    },
+    "2025-10-09T13:21:21.085799": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T13:21:21.085799",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 198798,
+        "processing_time": 2613
+      }
+    },
+    "2025-10-10T04:41:20.085799": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-10T04:41:20.085799",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_5.xml",
+        "file_size": 245218,
+        "processing_time": 1551
+      }
+    },
+    "2025-10-10T11:38:59.085799": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-10T11:38:59.085799",
+      "message": "Sample heartbeat event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_6.xml",
+        "file_size": 742897,
+        "processing_time": 2856
+      }
+    },
+    "2025-10-09T18:04:24.085799": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T18:04:24.085799",
+      "message": "Sample startup event",
+      "level": "WARNING",
+      "details": {
+        "file_path": "/path/to/file_7.xml",
+        "file_size": 683969,
+        "processing_time": 2847
+      }
+    },
+    "2025-10-10T12:55:26.085799": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-10T12:55:26.085799",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_8.xml",
+        "file_size": 168127,
+        "processing_time": 3857
+      }
+    },
+    "2025-10-09T20:56:40.085799": {
+      "event": "STARTUP",
+      "timestamp": "2025-10-09T20:56:40.085799",
+      "message": "Sample startup event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_9.xml",
+        "file_size": 866023,
+        "processing_time": 1489
+      }
+    },
+    "2025-10-09T17:34:02.085799": {
+      "event": "HEARTBEAT",
+      "timestamp": "2025-10-09T17:34:02.085799",
+      "message": "Sample heartbeat event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_10.xml",
+        "file_size": 74921,
+        "processing_time": 3303
+      }
+    },
+    "2025-10-08T23:23:18.085938": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-08T23:23:18.085938",
+      "message": "Sample shutdown event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_0.xml",
+        "file_size": 444289,
+        "processing_time": 2847
+      }
+    },
+    "2025-10-08T14:35:17.085938": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-08T14:35:17.085938",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_1.xml",
+        "file_size": 21482,
+        "processing_time": 4104
+      }
+    },
+    "2025-10-09T05:23:42.085938": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T05:23:42.085938",
+      "message": "Sample file_processed event",
+      "level": "INFO",
+      "details": {
+        "file_path": "/path/to/file_2.xml",
+        "file_size": 869055,
+        "processing_time": 359
+      }
+    },
+    "2025-10-09T05:52:22.085938": {
+      "event": "SHUTDOWN",
+      "timestamp": "2025-10-09T05:52:22.085938",
+      "message": "Sample shutdown event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_3.xml",
+        "file_size": 991301,
+        "processing_time": 3123
+      }
+    },
+    "2025-10-09T02:34:07.085938": {
+      "event": "FILE_PROCESSED",
+      "timestamp": "2025-10-09T02:34:07.085938",
+      "message": "Sample file_processed event",
+      "level": "ERROR",
+      "details": {
+        "file_path": "/path/to/file_4.xml",
+        "file_size": 107944,
+        "processing_time": 3375
+      }
+    }
+  }
+}
