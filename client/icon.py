@@ -51,7 +51,7 @@ logger = get_logger('main')
 
 # Import các module mới
 from firebase_logger import firebase_logger
-from firebase_storage import firebase_storage_sync
+from github_storage import github_storage_sync
 from machine_manager import machine_manager
 from xml_fingerprint import XMLFingerprint
 
@@ -79,25 +79,25 @@ def add_to_startup():
 # Đã xóa send_gmail_log, send_googleform_log, send_remote_log - thay bằng Telegram Bot
 
 def get_templates():
-    """Lấy danh sách templates từ Firebase Storage cache"""
+    """Lấy danh sách templates từ GitHub Storage cache"""
     try:
-        # Lấy templates từ Firebase Storage cache
-        templates = firebase_storage_sync.get_local_templates()
+        # Lấy templates từ GitHub Storage cache
+        templates = github_storage_sync.get_local_templates()
 
         if not templates:
             logger.warning("⚠️ Không tìm thấy templates trong cache")
             # Thử sync một lần nữa
-            firebase_storage_sync.sync_templates()
-            templates = firebase_storage_sync.get_local_templates()
+            github_storage_sync.sync_templates()
+            templates = github_storage_sync.get_local_templates()
 
         logger.info(f"📁 Tìm thấy {len(templates)} templates")
-        firebase_logger.send_log("Đã cài đặt mẫu XML từ Firebase Storage", f"{len(templates)} files")
+        firebase_logger.send_log("Đã cài đặt mẫu XML từ GitHub Repository", f"{len(templates)} files")
 
         return templates
 
     except Exception as e:
         logger.error(f"❌ Lỗi lấy templates: {e}")
-        firebase_logger.send_log(f"Lỗi lấy templates: {str(e)}", "Firebase Storage")
+        firebase_logger.send_log(f"Lỗi lấy templates: {str(e)}", "GitHub Storage")
         return []
 
 def load_processed_files():
@@ -194,18 +194,18 @@ def start_monitor():
     # Thêm vào startup
     add_to_startup()
 
-    # Sync templates từ Firebase Storage
-    logger.info("🔄 Đồng bộ templates từ Firebase Storage...")
-    firebase_storage_sync.sync_templates()
+    # Sync templates từ GitHub Repository
+    logger.info("🔄 Đồng bộ templates từ GitHub Repository...")
+    github_storage_sync.sync_templates()
 
     # Bắt đầu auto-sync templates
-    firebase_storage_sync.start_auto_sync()
+    github_storage_sync.start_auto_sync()
 
     # Lấy templates và khởi tạo XML Fingerprint
     templates = get_templates()
 
-    # Sử dụng cache directory từ Firebase Storage
-    templates_dir = firebase_storage_sync.cache_dir
+    # Sử dụng cache directory từ GitHub Storage
+    templates_dir = github_storage_sync.cache_dir
 
     # Khởi tạo handler với XML fingerprint
     handler = DownloadHandler(templates_dir)

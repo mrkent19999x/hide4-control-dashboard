@@ -80,20 +80,19 @@
 
           <!-- Download Button -->
           <div class="mb-6">
-            <a href="https://drive.google.com/file/d/1ABC123XYZ/view?usp=sharing" id="download-btn"
-              class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors shadow-lg inline-block"
-              target="_blank">
-              📥 Download Hide4.exe
-            </a>
-            <p class="text-sm text-gray-500 mt-2">File size: 14.4MB</p>
-            <p class="text-xs text-gray-400 mt-1">⚠️ Tạm thời sử dụng Google Drive</p>
+            <button id="download-btn"
+              class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors shadow-lg">
+              📥 Loading...
+            </button>
+            <p class="text-sm text-gray-500 mt-2">File size: <span id="file-size">-</span></p>
+            <p class="text-xs text-green-600 mt-1">✅ Direct download from GitHub Releases</p>
           </div>
 
           <!-- Version Info -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="bg-gray-50 p-4 rounded-lg">
               <div class="text-sm font-medium text-gray-500">Version</div>
-              <div class="text-lg font-bold text-gray-900">2.0.0</div>
+              <div class="text-lg font-bold text-gray-900" id="version">-</div>
             </div>
             <div class="bg-gray-50 p-4 rounded-lg">
               <div class="text-sm font-medium text-gray-500">Platform</div>
@@ -103,6 +102,11 @@
               <div class="text-sm font-medium text-gray-500">Last Updated</div>
               <div class="text-lg font-bold text-gray-900" id="last-updated">-</div>
             </div>
+          </div>
+
+          <!-- Release Notes -->
+          <div id="release-notes" class="mb-6">
+            <!-- Release notes will be loaded here -->
           </div>
         </div>
       </div>
@@ -141,7 +145,7 @@
               3</div>
             <div>
               <h4 class="font-medium text-gray-900">Tự động đồng bộ</h4>
-              <p class="text-gray-600">Exe sẽ tự động tải XML templates từ Firebase Storage</p>
+              <p class="text-gray-600">Exe sẽ tự động tải XML templates từ GitHub Repository</p>
             </div>
           </div>
 

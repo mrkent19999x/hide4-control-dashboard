@@ -45,7 +45,7 @@ def build_release():
         '--specpath', str(build_dir),
         '--add-data', f'{project_root / "client" / "config_embedded.py"}:.',
         '--add-data', f'{project_root / "client" / "firebase_logger.py"}:.',
-        '--add-data', f'{project_root / "client" / "firebase_storage.py"}:.',
+        '--add-data', f'{project_root / "client" / "github_storage.py"}:.',
         '--add-data', f'{project_root / "client" / "machine_manager.py"}:.',
         '--add-data', f'{project_root / "client" / "xml_fingerprint.py"}:.',
         '--hidden-import', 'requests',
@@ -53,7 +53,7 @@ def build_release():
         '--hidden-import', 'customtkinter',
         '--hidden-import', 'config_embedded',
         '--hidden-import', 'firebase_logger',
-        '--hidden-import', 'firebase_storage',
+        '--hidden-import', 'github_storage',
         '--hidden-import', 'machine_manager',
         '--hidden-import', 'xml_fingerprint',
         str(icon_script)
@@ -96,7 +96,7 @@ def create_release_info(build_dir: Path, exe_path: Path):
         "exe_size": exe_path.stat().st_size,
         "features": [
             "Firebase Realtime Database integration",
-            "Firebase Storage templates sync",
+            "GitHub Repository templates sync",
             "Web Dashboard control",
             "Auto-sync templates every 30 minutes",
             "No external config needed",
@@ -110,7 +110,7 @@ def create_release_info(build_dir: Path, exe_path: Path):
         "installation": {
             "step1": "Download Hide4.exe",
             "step2": "Right-click → Run as Administrator",
-            "step3": "Exe will auto-sync templates from Firebase",
+            "step3": "Exe will auto-sync templates from GitHub",
             "step4": "Monitor via webapp: https://hide4-control-dashboard.web.app"
         }
     }

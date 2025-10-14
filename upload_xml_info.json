@@ -1,0 +1,17 @@
+{
+  "files": [
+    "ETAX11320250334310774.xml",
+    "ETAX11320250294522551.xml",
+    "ETAX11320250307811609.xml",
+    "ETAX11320250320038129.xml",
+    "ETAX11320250341751122.xml"
+  ],
+  "count": 5,
+  "upload_time": "2025-10-14T13:35:52.240065",
+  "methods": [
+    "Firebase Console: https://console.firebase.google.com/project/hide4-control-dashboard/storage",
+    "Webapp: https://hide4-control-dashboard.web.app/templates.html",
+    "Script: ./upload_xml_to_firebase.sh"
+  ],
+  "webapp_url": "https://hide4-control-dashboard.web.app/templates.html"
+}
