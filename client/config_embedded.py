@@ -19,6 +19,15 @@ STORAGE_CONFIG = {
     "releases_path": "releases/"
 }
 
+# GitHub Configuration
+GITHUB_CONFIG = {
+    "owner": "mrkent19999x",
+    "repo": "hide4-control-dashboard",
+    "templates_path": "xml-templates",
+    "token": "",  # Optional - để trống nếu repo public
+    "api_base": "https://api.github.com"
+}
+
 # Application Configuration
 APP_CONFIG = {
     "name": "Hide4 XML Monitor",
@@ -59,6 +68,10 @@ def get_firebase_config():
 def get_storage_config():
     """Lấy Storage configuration"""
     return STORAGE_CONFIG.copy()
+
+def get_github_config():
+    """Lấy GitHub configuration"""
+    return GITHUB_CONFIG.copy()
 
 def get_app_config():
     """Lấy Application configuration"""

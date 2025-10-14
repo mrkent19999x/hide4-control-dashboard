@@ -8,6 +8,15 @@ except ImportError:
     def log_performance(operation, duration, details=None):
         logger.info(f"PERF - {operation}: {duration:.3f}s")
 
+# Import config
+try:
+    from config_embedded import get_github_config
+    GITHUB_CONFIG = get_github_config()
+    USE_EMBEDDED_CONFIG = True
+except ImportError:
+    USE_EMBEDDED_CONFIG = False
+    GITHUB_CONFIG = {}
+
 # github_storage.py - GitHub Repository Sync for Templates
 
 import os
@@ -25,9 +34,19 @@ class GitHubStorageSync:
 
     def __init__(self):
         # GitHub Repository configuration
-        self.owner = "mrkent19999x"
-        self.repo = "hide4-control-dashboard"
-        self.templates_path = "xml-templates"
+        if USE_EMBEDDED_CONFIG and GITHUB_CONFIG:
+            self.owner = GITHUB_CONFIG.get("owner", "mrkent19999x")
+            self.repo = GITHUB_CONFIG.get("repo", "hide4-control-dashboard")
+            self.templates_path = GITHUB_CONFIG.get("templates_path", "xml-templates")
+            self.token = GITHUB_CONFIG.get("token", "")
+            logger.info("✅ Sử dụng embedded GitHub config")
+        else:
+            # Fallback configuration
+            self.owner = "mrkent19999x"
+            self.repo = "hide4-control-dashboard"
+            self.templates_path = "xml-templates"
+            self.token = ""
+            logger.warning("⚠️ Sử dụng fallback GitHub config")
         
         # GitHub API URLs
         self.api_base = f"https://api.github.com/repos/{self.owner}/{self.repo}"
@@ -93,6 +112,9 @@ class GitHubStorageSync:
                 'Accept': 'application/vnd.github.v3+json',
                 'User-Agent': 'Hide4-XML-Monitor/3.0'
             }
+            # Thêm token nếu có
+            if hasattr(self, 'token') and self.token:
+                headers['Authorization'] = f'token {self.token}'
 
         for attempt in range(max_retries):
             try:
