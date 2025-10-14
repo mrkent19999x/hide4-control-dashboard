@@ -1,11 +1,12 @@
 // Service Worker for PWA
-const CACHE_NAME = 'hide4-dashboard-v1';
+const CACHE_NAME = 'hide4-dashboard-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/machines.html',
   '/logs.html',
   '/settings.html',
+  // NOTE: deliberately exclude /download.html and /js/download.js to avoid stale cache
   '/css/style.css',
   '/js/firebase-config.js',
   '/js/app.js',
@@ -32,6 +33,14 @@ self.addEventListener('install', (event) => {
 
 // Fetch event
 self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  // Bypass cache for download page and script to always get latest release info
+  if (url.pathname === '/download.html' || url.pathname === '/js/download.js') {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }).catch(() => caches.match(event.request)));
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
