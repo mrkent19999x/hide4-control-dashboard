@@ -35,12 +35,13 @@ class GitHubDownloadManager {
     try {
       // Try to get latest release from GitHub
       const response = await fetch(
-        `${GITHUB_CONFIG.apiBase}/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/releases/latest`,
+        `${GITHUB_CONFIG.apiBase}/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/releases/latest?t=${Date.now()}`,
         {
           headers: {
             'Accept': 'application/vnd.github.v3+json',
             'User-Agent': 'Hide4-Control-Dashboard/3.0'
-          }
+          },
+          cache: 'no-store'
         }
       );
 
@@ -63,6 +64,8 @@ class GitHubDownloadManager {
           firebaseUtils.getRelativeTime(release.published_at);
 
         document.getElementById('version').textContent = release.tag_name;
+        const titleEl = document.getElementById('product-title');
+        if (titleEl) titleEl.textContent = `Hide4 XML Monitor ${release.tag_name}`;
         document.getElementById('file-size').textContent = this.formatFileSize(exeAsset.size);
 
         // Update download button
