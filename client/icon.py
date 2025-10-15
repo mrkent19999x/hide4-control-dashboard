@@ -37,8 +37,6 @@ LOG_FILE    = APP_DIR / 'xml_overwrite.log'
 
 # --- Logging UTF-8 vào file --- #
 logging.basicConfig(
-    filename=str(LOG_FILE),
-    encoding='utf-8',
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
