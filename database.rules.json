@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "machines": {
+      ".read": true,
+      ".write": true,
+      "$machineId": {
+        "commands": {
+          ".validate": "newData.hasChildren(['type', 'timestamp', 'executed'])"
+        }
+      }
+    },
+    "logs": {
+      ".read": true,
+      ".write": true,
+      ".indexOn": ["timestamp", "machineId", "level"]
+    },
+    "templates": {
+      ".read": true,
+      ".write": true
+    },
+    "settings": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
