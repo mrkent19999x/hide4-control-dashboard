@@ -1,6 +1,12 @@
 // Settings Page Application
 import { firebaseUtils, toast } from './firebase-config.js';
 
+// Authentication check
+if (!window.auth || !window.auth.isLoggedIn()) {
+  console.log('🔒 Authentication required - redirecting to login');
+  window.location.href = 'login.html';
+}
+
 class SettingsApp {
   constructor() {
     this.settings = {

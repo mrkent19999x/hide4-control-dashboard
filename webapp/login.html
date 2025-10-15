@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Hide4 Control Dashboard</title>
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#1e40af">
+  <meta name="description" content="Hide4 XML Monitor Control Dashboard - Admin Login">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="js/firebase-config.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <!-- Login Container -->
+  <div class="max-w-md w-full space-y-8">
+    <!-- Header -->
+    <div class="text-center">
+      <div class="mx-auto h-12 w-12 bg-blue-600 rounded-full flex items-center justify-center">
+        <span class="text-white text-xl">🕵️</span>
+      </div>
+      <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+        Hide4 Control Dashboard
+      </h2>
+      <p class="mt-2 text-sm text-gray-600">
+        Đăng nhập để quản lý hệ thống
+      </p>
+    </div>
+
+    <!-- Login Form -->
+    <form class="mt-8 space-y-6" id="login-form">
+      <div class="rounded-md shadow-sm -space-y-px">
+        <!-- Username Field -->
+        <div>
+          <label for="username" class="sr-only">Tên đăng nhập</label>
+          <input id="username" name="username" type="text" required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Tên đăng nhập" value="admin">
+        </div>
+        
+        <!-- Password Field -->
+        <div>
+          <label for="password" class="sr-only">Mật khẩu</label>
+          <input id="password" name="password" type="password" required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Mật khẩu">
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div id="error-message" class="hidden">
+        <div class="bg-red-50 border border-red-200 rounded-md p-4">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <h3 class="text-sm font-medium text-red-800">
+                Đăng nhập thất bại
+              </h3>
+              <div class="mt-2 text-sm text-red-700">
+                <p id="error-text">Tên đăng nhập hoặc mật khẩu không đúng.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Button -->
+      <div>
+        <button type="submit" id="login-button"
+          class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed">
+          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <svg class="h-5 w-5 text-blue-500 group-hover:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          <span id="login-text">Đăng nhập</span>
+          <span id="login-spinner" class="hidden">
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Đang đăng nhập...
+          </span>
+        </button>
+      </div>
+
+      <!-- Help Text -->
+      <div class="text-center">
+        <p class="text-xs text-gray-500">
+          Mặc định: admin / Hide4Admin2024!
+        </p>
+      </div>
+    </form>
+
+    <!-- Footer -->
+    <div class="text-center">
+      <p class="text-xs text-gray-400">
+        Hide4 XML Monitor Control Dashboard v3.0.0
+      </p>
+    </div>
+  </div>
+
+  <!-- Auth Script -->
+  <script type="module" src="js/auth.js"></script>
+  
+  <!-- Login Logic -->
+  <script type="module">
+    import { firebaseUtils, toast } from './js/firebase-config.js';
+
+    // Check if already logged in
+    if (window.auth && window.auth.isLoggedIn()) {
+      console.log('✅ User already authenticated - redirecting to dashboard');
+      window.location.href = 'index.html';
+    }
+
+    // Login form handling
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const loginButton = document.getElementById('login-button');
+      const loginText = document.getElementById('login-text');
+      const loginSpinner = document.getElementById('login-spinner');
+      const errorMessage = document.getElementById('error-message');
+      
+      // Show loading state
+      loginButton.disabled = true;
+      loginText.classList.add('hidden');
+      loginSpinner.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
+      
+      try {
+        // Attempt login
+        const success = window.auth.login(username, password);
+        
+        if (success) {
+          // Show success message
+          toast.show('✅ Đăng nhập thành công!', 'success');
+          
+          // Wait a moment then redirect
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1000);
+        } else {
+          // Show error message
+          errorMessage.classList.remove('hidden');
+          toast.show('❌ Tên đăng nhập hoặc mật khẩu không đúng', 'error');
+        }
+      } catch (error) {
+        console.error('❌ Login error:', error);
+        errorMessage.classList.remove('hidden');
+        toast.show('❌ Lỗi đăng nhập: ' + error.message, 'error');
+      } finally {
+        // Reset button state
+        loginButton.disabled = false;
+        loginText.classList.remove('hidden');
+        loginSpinner.classList.add('hidden');
+      }
+    });
+
+    // Auto-focus password field if username is filled
+    document.getElementById('username').addEventListener('input', (e) => {
+      if (e.target.value.trim() === 'admin') {
+        document.getElementById('password').focus();
+      }
+    });
+
+    // Enter key handling
+    document.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !document.getElementById('login-button').disabled) {
+        document.getElementById('login-form').dispatchEvent(new Event('submit'));
+      }
+    });
+  </script>
+</body>
+
+</html>

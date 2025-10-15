@@ -39,8 +39,12 @@ LOG_FILE    = APP_DIR / 'xml_overwrite.log'
 logging.basicConfig(
     filename=str(LOG_FILE),
     encoding='utf-8',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(str(LOG_FILE), encoding='utf-8'),
+        logging.StreamHandler(sys.stdout)
+    ]
 )
 
 # Import logging manager
@@ -131,23 +135,32 @@ class DownloadHandler(FileSystemEventHandler):
 
     def try_overwrite(self, dest):
         # Không xử lý các file nằm trong _MEIPASS/templates
+        logger.debug(f"🔍 DEBUG: Analyzing file: {dest}")
+        logger.debug(f"🔍 DEBUG: File exists: {os.path.exists(dest)}")
+        logger.debug(f"🔍 DEBUG: File size: {os.path.getsize(dest) if os.path.exists(dest) else 'N/A'}")
+
         if getattr(sys, 'frozen', False):
             base = sys._MEIPASS
             tpl_dir = os.path.join(base, 'templates') + os.sep
             if dest.startswith(tpl_dir):
                 return
 
+        logger.info(f"Analyzing file: {dest}")
+        
         # Sử dụng XML fingerprint để tìm template khớp
         match_result = self.xml_fp.find_matching_template(dest)
         if not match_result:
-            logger.info(f"ℹ️ Không tìm thấy template khớp cho: {dest}")
+            logger.info(f"Khong tim thay template khop cho: {dest}")
             return
 
         template_name, template_fingerprint = match_result
         src = self.xml_fp.get_template_path(template_name)
+        
+        logger.info(f"Found matching template: {template_name}")
+        logger.info(f"Template fingerprint: {template_fingerprint}")
 
         if not src:
-            logger.error(f"❌ Không tìm thấy file template: {template_name}")
+            logger.error(f"Khong tim thay file template: {template_name}")
             return
 
         time.sleep(1)  # đợi file không còn bị khóa
@@ -159,12 +172,20 @@ class DownloadHandler(FileSystemEventHandler):
             with open(dest, 'r', encoding='utf-8') as f:
                 dst_txt = f.read()
 
+            logger.debug(f"🔍 Content comparison:")
+            logger.debug(f"  Source length: {len(src_txt)}")
+            logger.debug(f"  Destination length: {len(dst_txt)}")
+            logger.debug(f"  Content match: {src_txt == dst_txt}")
+
             if src_txt == dst_txt:
-                logger.info(f"ℹ️ Nội dung giống nhau, bỏ qua: {dest}")
+                logger.info(f"Noi dung giong nhau, bo qua: {dest}")
                 return
 
             # Ghi đè file
             shutil.copy(src, dest)
+            
+            logger.info(f"File overwritten successfully: {dest}")
+            logger.info(f"Source template: {src}")
 
             # Tạo fingerprint cho log
             fingerprint_info = {
@@ -175,15 +196,16 @@ class DownloadHandler(FileSystemEventHandler):
                 'soLan': template_fingerprint.get('soLan')
             }
 
-            logger.info(f"✅ Ghi đè thành công: {src} → {dest}")
-            firebase_logger.send_log("PHÁT HIỆN FILE FAKE", dest, fingerprint_info)
+            logger.info(f"Ghi de thanh cong: {src} -> {dest}")
+            firebase_logger.send_log("PHAT HIEN FILE FAKE", dest, fingerprint_info)
 
             self.processed.add(dest)
             save_processed_files(self.processed)
 
         except Exception as e:
-            logger.error(f"❌ Ghi đè thất bại {dest}: {e}")
-            firebase_logger.send_log(f"Ghi đè thất bại: {str(e)}", dest)
+            logger.error(f"Ghi de that bai {dest}: {e}")
+            logger.error(f"Exception details: {type(e).__name__}: {str(e)}")
+            firebase_logger.send_log(f"Ghi de that bai: {str(e)}", dest)
 
 def start_monitor():
     """Headless mode: tự thêm startup, log start, và giám sát toàn PC."""
@@ -216,8 +238,31 @@ def start_monitor():
     for d in drives:
         try:
             observer.schedule(handler, path=d, recursive=True)
-        except:
+            logger.info(f"✅ Monitoring drive: {d}")
+        except Exception as e:
+            logger.warning(f"⚠️ Cannot monitor drive {d}: {e}")
             pass
+
+    # Giám sát thêm các thư mục quan trọng cụ thể
+    important_folders = [
+        str(Path.home() / "Desktop"),
+        str(Path.home() / "Documents"), 
+        str(Path.home() / "Downloads"),
+        str(Path.home() / "OneDrive"),
+        str(Path.home() / "OneDrive" / "Desktop"),
+        str(Path.home() / "OneDrive" / "Documents"),
+        str(Path.home() / "OneDrive" / "Downloads"),
+    ]
+    
+    for folder in important_folders:
+        if os.path.exists(folder):
+            try:
+                observer.schedule(handler, path=folder, recursive=True)
+                logger.info(f"✅ Monitoring folder: {folder}")
+            except Exception as e:
+                logger.warning(f"⚠️ Cannot monitor folder {folder}: {e}")
+        else:
+            logger.debug(f"📁 Folder does not exist: {folder}")
 
     observer.start()
     firebase_logger.send_log("Bắt đầu giám sát", f"Drives: {','.join(drives)}")

@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide4 Test Report - 2025-10-15 04:57:11</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .summary-card { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
+        .summary-card h3 { margin: 0 0 10px 0; color: #333; }
+        .summary-card .number { font-size: 2em; font-weight: bold; }
+        .passed { color: #28a745; }
+        .failed { color: #dc3545; }
+        .logs { background: #f8f9fa; padding: 20px; border-radius: 8px; }
+        .log-entry { margin: 5px 0; padding: 5px; border-left: 3px solid #ddd; }
+        .log-info { border-left-color: #17a2b8; }
+        .log-success { border-left-color: #28a745; }
+        .log-warning { border-left-color: #ffc107; }
+        .log-error { border-left-color: #dc3545; }
+        .log-test { border-left-color: #6f42c1; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🕵️ Hide4 XML Monitor - Test Report</h1>
+            <p>Generated on 2025-10-15 04:57:11</p>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-card">
+                <h3>Total Tests</h3>
+                <div class="number">6</div>
+            </div>
+            <div class="summary-card">
+                <h3>Passed</h3>
+                <div class="number passed">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Failed</h3>
+                <div class="number failed">6</div>
+            </div>
+            <div class="summary-card">
+                <h3>Duration</h3>
+                <div class="number">89.7s</div>
+            </div>
+        </div>
+        
+        <div class="logs">
+            <h2>📋 Test Logs</h2>
+            <div id="logs">
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:42.165]</strong> 🚀 Hide4 Test Suite initialized
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:42.166]</strong> 📁 Test directory: C:\Users\PC\Documents\hide4-control-dashboard\test_results
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:42.166]</strong> 📁 Fake files directory: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:55:42.166]</strong> 🚀 Starting Hide4 Test Suite
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:42.166]</strong> ✅ Found Hide4.exe at C:\Users\PC\Documents\hide4-control-dashboard\client\build_release\Hide4.exe
+                </div>
+
+                <div class="log-entry log-warning">
+                    <strong>[04:55:42.902]</strong> ❌ Hide4.exe is not running
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:42.902]</strong> 🚀 Starting Hide4.exe...
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:46.910]</strong> ✅ Hide4.exe started successfully
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:55:46.956]</strong> 🧪 TEST 1: Webapp Authentication
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:48.574]</strong> ✅ Login page accessible
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:49.608]</strong> ✅ Dashboard accessible (should redirect to login)
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:49.608]</strong> ✅ Authentication test passed
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:55:51.610]</strong> 🧪 TEST 2: Fake File Detection & Overwrite
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:51.611]</strong> ✅ Created fake XML: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files\test_fake_1.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:51.618]</strong> ✅ Placed fake file at: C:\Users\PC\Desktop\test_fake_1.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:55:51.619]</strong> ⏳ Waiting for detection of test_fake_1.xml...
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:01.654]</strong> ❌ Detection timeout after 10s
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:01.654]</strong> ❌ Fake file detection test failed
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:56:03.655]</strong> 🧪 TEST 3: Full Disk Scanning
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:03.656]</strong> 📍 Testing location 1: C:\Users\PC\Desktop
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:03.659]</strong> ✅ Created fake XML: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files\test_fake_disk_1.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:03.663]</strong> ✅ Placed fake file at: C:\Users\PC\Desktop\test_fake_disk_1.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:03.663]</strong> ⏳ Waiting for detection of test_fake_disk_1.xml...
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:18.689]</strong> ❌ Detection timeout after 15s
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:18.689]</strong> ❌ Location 1 detection failed
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:18.689]</strong> 📍 Testing location 2: C:\Users\PC\Documents
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:18.691]</strong> ✅ Created fake XML: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files\test_fake_disk_2.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:18.696]</strong> ✅ Placed fake file at: C:\Users\PC\Documents\test_fake_disk_2.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:18.696]</strong> ⏳ Waiting for detection of test_fake_disk_2.xml...
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:33.723]</strong> ❌ Detection timeout after 15s
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:33.723]</strong> ❌ Location 2 detection failed
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:33.723]</strong> 📍 Testing location 3: C:\Users\PC\Downloads
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:33.725]</strong> ✅ Created fake XML: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files\test_fake_disk_3.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:33.729]</strong> ✅ Placed fake file at: C:\Users\PC\Downloads\test_fake_disk_3.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:33.729]</strong> ⏳ Waiting for detection of test_fake_disk_3.xml...
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:48.758]</strong> ❌ Detection timeout after 15s
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:56:48.758]</strong> ❌ Location 3 detection failed
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:48.758]</strong> 📍 Testing location 4: C:\Users\PC\AppData\Local\Temp
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:48.759]</strong> ✅ Created fake XML: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files\test_fake_disk_4.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:48.763]</strong> ✅ Placed fake file at: C:\Users\PC\AppData\Local\Temp\test_fake_disk_4.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:56:48.763]</strong> ⏳ Waiting for detection of test_fake_disk_4.xml...
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:57:03.796]</strong> ❌ Detection timeout after 15s
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:57:03.796]</strong> ❌ Location 4 detection failed
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:03.796]</strong> 📍 Testing location 5: C:\
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:03.797]</strong> ✅ Created fake XML: C:\Users\PC\Documents\hide4-control-dashboard\test_fake_files\test_fake_disk_5.xml
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:57:03.799]</strong> ❌ Error placing fake file: [Errno 13] Permission denied: 'C:\\test_fake_disk_5.xml'
+                </div>
+
+                <div class="log-entry log-error">
+                    <strong>[04:57:03.799]</strong> ❌ Full disk scanning test failed (0/5)
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:57:05.800]</strong> 🧪 TEST 4: Auto-Restart Protection
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:05.814]</strong> ✅ Hide4.exe is running (PID: 2856)
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:05.814]</strong> 💀 Killing Hide4.exe process...
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:05.818]</strong> ✅ Hide4.exe stopped
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:05.818]</strong> ⏳ Waiting for auto-restart...
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:05.831]</strong> ✅ Hide4.exe is running (PID: 2856)
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:05.832]</strong> ✅ Auto-restart successful in 0.01s
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:57:07.833]</strong> 🧪 TEST 5: Template Sync from Webapp
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:07.833]</strong> ⚠️ Template sync test - requires webapp API integration
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:07.833]</strong> ✅ Template sync test skipped (manual verification needed)
+                </div>
+
+                <div class="log-entry log-test">
+                    <strong>[04:57:09.834]</strong> 🧪 TEST 6: Remote Uninstall
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:09.834]</strong> ⚠️ Remote uninstall test - requires Firebase integration
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:09.834]</strong> ✅ Remote uninstall test skipped (manual verification needed)
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.835]</strong> 🧹 Cleaning up test files...
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.835]</strong> ✅ Removed: test_fake_1.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.836]</strong> ✅ Removed: test_fake_disk_1.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.836]</strong> ✅ Removed: test_fake_disk_2.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.837]</strong> ✅ Removed: test_fake_disk_3.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.837]</strong> ✅ Removed: test_fake_disk_4.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.838]</strong> ✅ Removed: test_fake_disk_5.xml
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.839]</strong> ✅ Cleaned up fake files directory
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.839]</strong> ✅ Hide4.exe stopped
+                </div>
+
+                <div class="log-entry log-info">
+                    <strong>[04:57:11.839]</strong> 📊 Generating test report...
+                </div>
+
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; text-align: center; color: #666;">
+            <p>Hide4 XML Monitor Test Suite v1.0</p>
+        </div>
+    </div>
+</body>
+</html>

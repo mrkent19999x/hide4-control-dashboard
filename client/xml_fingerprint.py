@@ -127,8 +127,16 @@ class XMLFingerprint:
         # Các trường bắt buộc phải khớp
         required_fields = ['mst', 'maTKhai', 'kieuKy', 'kyKKhai']
 
+        logger.debug(f"🔍 Comparing fingerprints:")
+        logger.debug(f"  fp1: {fp1}")
+        logger.debug(f"  fp2: {fp2}")
+
         for field in required_fields:
-            if fp1.get(field) != fp2.get(field):
+            val1 = fp1.get(field)
+            val2 = fp2.get(field)
+            logger.debug(f"  {field}: '{val1}' vs '{val2}' -> {val1 == val2}")
+            if val1 != val2:
+                logger.debug(f"❌ Field {field} mismatch: '{val1}' != '{val2}'")
                 return False
 
         # Số lần có thể khác nhau (fp1 có thể là 0, fp2 có thể là 1,2,3...)
@@ -138,8 +146,10 @@ class XMLFingerprint:
 
         if soLan1 is not None and soLan2 is not None:
             if soLan1 != soLan2:
+                logger.debug(f"❌ soLan mismatch: '{soLan1}' != '{soLan2}'")
                 return False
 
+        logger.debug(f"✅ Fingerprints match!")
         return True
 
     def get_template_path(self, template_name: str) -> Optional[str]:

@@ -3,6 +3,12 @@
 import { push, ref } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 import { firebaseUtils, toast } from './firebase-config.js';
 
+// Authentication check
+if (!window.auth || !window.auth.isLoggedIn()) {
+  console.log('🔒 Authentication required - redirecting to login');
+  window.location.href = 'login.html';
+}
+
 // GitHub Configuration
 const GITHUB_CONFIG = {
   owner: 'mrkent19999x',
