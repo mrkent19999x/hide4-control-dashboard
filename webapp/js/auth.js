@@ -3,7 +3,7 @@
 class SimpleAuth {
     constructor() {
         this.username = 'admin';
-        this.password = 'Hide4Admin2024!';
+        this.password = 'Baoan2022@';
         this.sessionKey = 'hide4_admin_session';
         this.sessionTimeout = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         this.isAuthenticated = false;
