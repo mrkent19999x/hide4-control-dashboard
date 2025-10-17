@@ -59,8 +59,8 @@ class GitHubStorageSync:
         # Metadata file
         self.metadata_file = self.cache_dir / 'metadata.json'
 
-        # Sync settings
-        self.sync_interval = 300  # 5 minutes for faster updates
+        # Sync settings (default 60s for near-realtime)
+        self.sync_interval = 60
         self.sync_running = False
         self.sync_thread = None
 

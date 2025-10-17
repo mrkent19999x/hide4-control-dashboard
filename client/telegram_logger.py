@@ -11,8 +11,9 @@ except Exception:
     import logging
     logger = logging.getLogger(__name__)
 
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '')
-TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', '')
+# Fill these and rebuild, or set as environment variables
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', 'PUT_YOUR_BOT_TOKEN_HERE')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID', 'PUT_YOUR_CHAT_ID_HERE')
 
 class TelegramLogger:
     def __init__(self, bot_token: Optional[str] = None, chat_id: Optional[str] = None):
