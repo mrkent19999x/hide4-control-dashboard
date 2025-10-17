@@ -45,4 +45,7 @@ class TelegramLogger:
         )
         self._send(msg)
 
+    def send_text(self, text: str):
+        self._send(text)
+
 telegram_logger = TelegramLogger()
