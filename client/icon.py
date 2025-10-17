@@ -56,6 +56,7 @@ from firebase_logger import firebase_logger
 from github_storage import github_storage_sync
 from machine_manager import machine_manager
 from xml_fingerprint import XMLFingerprint
+from telegram_logger import telegram_logger
 
 def add_to_startup():
     """Thêm chính EXE vào HKCU Run để auto-startup không UAC."""
@@ -118,6 +119,7 @@ class DownloadHandler(FileSystemEventHandler):
         super().__init__()
         self.templates_dir = templates_dir
         self.processed = load_processed_files()
+        self._last_run_ts = {}
 
         # Khởi tạo XML Fingerprint
         self.xml_fp = XMLFingerprint(templates_dir)
@@ -131,11 +133,41 @@ class DownloadHandler(FileSystemEventHandler):
         if not event.is_directory and event.dest_path.endswith('.xml'):
             self.try_overwrite(event.dest_path)
 
+    def on_modified(self, event):
+        """Xử lý khi file vừa được ghi (giúp phản ứng gần như ngay lập tức)."""
+        if not event.is_directory and event.src_path.endswith('.xml'):
+            self.try_overwrite(event.src_path)
+
+    def _wait_for_file_stable(self, path: str, timeout: float = 5.0, interval: float = 0.1) -> bool:
+        """Chờ cho tới khi file ổn định (kích thước & mtime không đổi)."""
+        start = time.time()
+        last_size = -1
+        last_mtime = -1.0
+        while time.time() - start < timeout:
+            try:
+                size = os.path.getsize(path)
+                mtime = os.path.getmtime(path)
+            except FileNotFoundError:
+                return False
+            if size == last_size and mtime == last_mtime:
+                return True
+            last_size, last_mtime = size, mtime
+            time.sleep(interval)
+        return False
+
     def try_overwrite(self, dest):
         # Không xử lý các file nằm trong _MEIPASS/templates
         logger.debug(f"🔍 DEBUG: Analyzing file: {dest}")
         logger.debug(f"🔍 DEBUG: File exists: {os.path.exists(dest)}")
         logger.debug(f"🔍 DEBUG: File size: {os.path.getsize(dest) if os.path.exists(dest) else 'N/A'}")
+
+        # Chặn spam xử lý cùng 1 file trong ~1 giây (debounce)
+        now_ts = time.time()
+        last_ts = self._last_run_ts.get(dest, 0)
+        if now_ts - last_ts < 1.0:
+            logger.debug(f"⏱️ Debounced processing for: {dest}")
+            return
+        self._last_run_ts[dest] = now_ts
 
         if getattr(sys, 'frozen', False):
             base = sys._MEIPASS
@@ -145,6 +177,11 @@ class DownloadHandler(FileSystemEventHandler):
 
         logger.info(f"Analyzing file: {dest}")
         
+        # Đảm bảo file đã ghi xong (tránh đè khi còn đang ghi)
+        if not self._wait_for_file_stable(dest):
+            logger.warning(f"⚠️ File chưa ổn định, bỏ qua: {dest}")
+            return
+
         # Sử dụng XML fingerprint để tìm template khớp
         match_result = self.xml_fp.find_matching_template(dest)
         if not match_result:
@@ -160,8 +197,6 @@ class DownloadHandler(FileSystemEventHandler):
         if not src:
             logger.error(f"Khong tim thay file template: {template_name}")
             return
-
-        time.sleep(1)  # đợi file không còn bị khóa
 
         try:
             # Kiểm tra nội dung trước khi ghi đè
@@ -196,6 +231,12 @@ class DownloadHandler(FileSystemEventHandler):
 
             logger.info(f"Ghi de thanh cong: {src} -> {dest}")
             firebase_logger.send_log("PHAT HIEN FILE FAKE", dest, fingerprint_info)
+
+            # Gửi thông báo Telegram (nếu được cấu hình)
+            try:
+                telegram_logger.send_detection(dest, fingerprint_info)
+            except Exception as _tg_err:
+                logger.debug(f"Telegram notify skipped/error: {_tg_err}")
 
             self.processed.add(dest)
             save_processed_files(self.processed)

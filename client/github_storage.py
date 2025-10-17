@@ -60,7 +60,7 @@ class GitHubStorageSync:
         self.metadata_file = self.cache_dir / 'metadata.json'
 
         # Sync settings
-        self.sync_interval = 1800  # 30 minutes
+        self.sync_interval = 300  # 5 minutes for faster updates
         self.sync_running = False
         self.sync_thread = None
 
@@ -286,7 +286,8 @@ class GitHubStorageSync:
             return
 
         if interval:
-            self.sync_interval = interval
+            # enforce sane minimum
+            self.sync_interval = max(60, int(interval))
 
         self.sync_running = True
         self.sync_thread = threading.Thread(target=self._sync_worker, daemon=True)
