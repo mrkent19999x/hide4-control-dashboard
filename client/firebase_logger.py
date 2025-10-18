@@ -73,6 +73,7 @@ class FirebaseLogger:
 
     def load_machine_id(self):
         """Tải Machine ID từ file machine_id.json"""
+        # Bổ sung tìm ID từ MachineManager nếu file chưa có
         if MACHINE_ID_FILE.exists():
             try:
                 with open(MACHINE_ID_FILE, 'r', encoding='utf-8') as f:
@@ -80,6 +81,16 @@ class FirebaseLogger:
                     self.machine_id = machine_data.get('id')
             except Exception as e:
                 logger.error(f"❌ Lỗi đọc machine_id: {e}")
+        
+        if not self.machine_id:
+            try:
+                from machine_manager import machine_manager  # lazy import to avoid cycle
+                potential_id = machine_manager.get_machine_id()
+                if potential_id:
+                    self.machine_id = potential_id
+                    logger.debug("🆔 Machine ID loaded from MachineManager")
+            except Exception as e:
+                logger.debug(f"MachineManager not available yet: {e}")
 
     def is_configured(self) -> bool:
         """Kiểm tra xem Firebase đã được cấu hình chưa"""
@@ -154,10 +165,7 @@ class FirebaseLogger:
     def send_log(self, event: str, path: str = None, fingerprint: Dict = None, once: bool = False):
         """Gửi log lên Firebase"""
         if not self.is_configured():
-            logger.warning("Firebase chua duoc cau hinh - can tao config.json")
-            print(f"Firebase chua duoc cau hinh")
-            print(f"Can tao file: {CONFIG_FILE}")
-            print(f"Copy tu: config.json.example")
+            logger.warning("Firebase chua duoc cau hinh")
             return
 
         try:
@@ -180,14 +188,9 @@ class FirebaseLogger:
             result = self._make_request('PUT', path, log_data)
 
             if result is not None:
-                if self.verbose:
-                    logger.info(f"Log sent successfully: {event}")
-                else:
-                    logger.info(f"Da gui log Firebase: {event}")
-                print(f"Da gui log Firebase: {event}")
+                logger.info(f"Da gui log Firebase: {event}")
             else:
                 logger.error(f"Gui log Firebase that bai: {event}")
-                print(f"Gui log Firebase that bai: {event}")
 
         except Exception as e:
             logger.error(f"Gui Firebase that bai: {e}")

